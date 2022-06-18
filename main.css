@@ -99,3 +99,38 @@ a{
 .formOn{
     transform: translateX(0);
 }
+.noteForm > div {
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    margin-top:15px;
+} 
+.noteForm input,
+.noteForm textarea {
+    border:none;
+    background-color: white;
+    padding: 6px 7px;
+    width: 100%;
+    resize:none;
+    box-shadow: 0px 4px 8px 1px gray;
+}
+.card{
+    box-shadow:  3px 11px 11px black;
+    width:250px;
+    min-height: 150px;
+    padding:15px;
+    background-color: #efefef;
+
+}
+.card > h3 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+.card > p {
+    font-size: 1.4rem;
+}
+.noteWrapper {
+    display: flex;
+    gap:25px;
+    flex-wrap: wrap;
+}

@@ -17,8 +17,6 @@ const menuToggler = () => {
     hideMenuBtn.addEventListener("click", toggleMenu);
 }
 
-//menuToggler();
-
 window.addEventListener("DOMContentLoaded", () => {
     menuToggler();
 });
@@ -31,6 +29,7 @@ const noteCreator = () => {
 
     const addNote = () => {
         const note = document.createElement("div");
+        note.classList.add("card");
         note.innerHTML = 
         `
             <h3>Tytuł notatki</h3>
