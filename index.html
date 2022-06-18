@@ -15,7 +15,6 @@
     <header class="pageHeader">
         <i class="bi bi-apple logo"></i>
         <nav>
-            
             <ul class="pageNav" id="Menu">
                 <i class="bi bi-x-circle closeMenu" id="CloseMenuBtn"></i>
                 <li>
@@ -34,6 +33,23 @@
         </nav>
     </header>
     <i class="bi bi-three-dots hamburger" id="ShowMenuBtn"></i>
+
+    <aside id="Form" class="noteForm">
+        <h2>Nowa notatka</h2>
+        <div>
+            <input id="NoteTitle" type="text" placeholder="nazwa notatki">
+            <input id="NoteContent" type="text" cols="30" rows="10" placeholder="Treść notatki">
+            <button id="AddNoteBtn">Dodaj</button>
+        </div>
+    </aside>
+
+    <div id="ShowForm" class="noteFormBtn">
+        <i class="bi bi-box-arrow-in-left"></i>
+    </div>
+
+    <main id="Notes" class="noteWrapper">
+
+    </main>
 
     <script src="./script.js"></script>
 </body>
