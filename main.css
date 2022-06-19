@@ -95,6 +95,35 @@ a{
     transform: translateX(500px);
     box-shadow: -6px 15px 92px 41px black;
 }
+.weatherModal{
+    background-color: red;
+    position:fixed;
+    height: 95%;
+    width: 95%;
+    top:2.5%;
+    left:2.5%;
+    background-image: url(./histor.png);
+    background-size: cover;
+    border-radius: 10%;
+}
+.weatherModal button{
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    right:15px;
+    top:15px;
+    transition: 0.3;
+}
+.hideModal{
+    opacity:0;
+    z-index: -1;
+}
+.weatherModal h2{
+    text-align: center;
+}
+.weatherModal h3{
+    text-align: center;
+}
 .menuOn,
 .formOn{
     transform: translateX(0);

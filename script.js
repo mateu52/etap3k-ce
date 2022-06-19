@@ -97,12 +97,37 @@ const formToggler = () => {
     }
     showFormBtn.addEventListener("click",toggleForm);
 }
+const weatherInfo= ()=> {
+    const KEY = "8150e9fef71096f5a6ec329c8a076f78";
 
+    navigator.geolocation.getCurrentPosition((location)=> showWeather(location))
+
+    const showWeather =async(loc)=>{
+        const city =document.getElementById("CityName");
+        const mainTemp =document.getElementById("MainTemp");
+
+        
+        const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${loc.coords.latitude}&lon=${loc.coords.latitude}&appid=${KEY}`;
+        const result = await fetch(URL);
+        const weather = await(result).json();
+        console.log(weather);
+
+        city.textContent = weather.name;
+        mainTemp.textContent =`${Math.round( weather.main.temp-275.2)} C`;
+    }
+
+    const modalWrapper = document.getElementById("Weather");
+    const closeBtn = document.getElementById("CloseModal");
+
+    const closeModal = () => modalWrapper.classList.add("hideModal");
+    closeBtn.addEventListener('click', closeModal);
+}
 
 window.addEventListener("load", () => {
     menuToggler();
     noteCreator();
     formToggler();
+    weatherInfo();
     console.log("witam");
 })
 
