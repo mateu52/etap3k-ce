@@ -1,3 +1,22 @@
+const initialNotes = [
+    {
+        title: "zrobić zakupy",
+        content: "Zakupy na dzisiejszy obiad",
+        category: "Dom"
+    },
+    {
+        title: "Pograc w koszykówke",
+        content: "Pora odejść od komputera",
+        category: "Praca"
+    },
+    {
+        title: "Iść do biura podróży",
+        content: "Kupić bilety na Dominikanie",
+        category: "Podróże"
+    }
+]
+
+
 const menuToggler = () => {
     const menu = document.getElementById("Menu");
     const showMenuBtn = document.getElementById("ShowMenuBtn");
@@ -28,9 +47,9 @@ const noteCreator = () => {
     const notesWrapper = document.getElementById("Notes");
     const categoryField = document.getElementById("NoteCategory");
 
-    const addNote = () => {
+    const addNote = (title, content, category) => {
         let iconClass= null;
-        switch(categoryField.value){
+        switch(category){
             case 'Podróże':
                 iconClass = "bi bi-house-fill";
                 break;
@@ -50,11 +69,11 @@ const noteCreator = () => {
         note.innerHTML = 
         `
             <span> <i class="${iconClass}"></i></span>
-            <span>${categoryField.value}</span>
-            <h3>Tytuł notatki</h3>
-            <p>zawartość notatki</p>
+            <span>${category}</span>
+            <h3>${title}</h3>
+            <p>${content}</p>
         `
-        if(titleField.value.length > 2 && contentField.value.length > 5){
+        if(title.length > 2 && content.length > 5){
             notesWrapper.appendChild(note);
         }
         else{
@@ -63,9 +82,11 @@ const noteCreator = () => {
         titleField.value = '';
         contentField.value = '';
     }
-    addBtn.addEventListener("click", addNote);
-    console.log("witam");
+    addBtn.addEventListener("click",()=> addNote(titleField.value, contentField.value, categoryField.value));
+    console.log(titleField, contentField,categoryField);
+    initialNotes.forEach((note) => addNote(note.title, note.content, note.category));
 }
+//initialNotes.forEach( (note) => add  )
 
 const formToggler = () => {
     const formWrapeer = document.getElementById('Form');
@@ -77,9 +98,12 @@ const formToggler = () => {
     showFormBtn.addEventListener("click",toggleForm);
 }
 
+
 window.addEventListener("load", () => {
     menuToggler();
     noteCreator();
     formToggler();
     console.log("witam");
 })
+
+
