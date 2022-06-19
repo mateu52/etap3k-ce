@@ -117,6 +117,22 @@ const weatherInfo= ()=> {
         
         const wind = document.getElementById("Wind");
         wind.textContent = `Wiatra ${weather.wind.speed} km/h`
+
+        const currentMessage = (temp) => {
+            if(temp >= 30){
+                return "Idealnie do opalania"
+            }
+            else if(temp >= 20 && temp < 30) {
+                return "Piękny letni dzień"
+            }
+            else if(temp >= 10 && temp < 20){
+                return "W sam raz do biegania"
+            }
+            else{
+                return "Jest dość chłodno"
+            }
+        }
+        stan.textContent = currentMessage(Math.round(weather.main.temp-275.2)) 
     }
 
     const modalWrapper = document.getElementById("Weather");
@@ -136,6 +152,7 @@ const weatherInfo= ()=> {
         }
     }
     const showTime=()=>{
+        const hello = document.getElementById("Hello");
         const currentTime = new Date()
         //console.log(currentTime);
         let h = currentTime.getHours();
@@ -143,13 +160,20 @@ const weatherInfo= ()=> {
         let s = currentTime.getSeconds();
     
         clock.textContent = `${addZero(h)}:${addZero(h)}:${addZero(s)}`;
-    
+        if(h>4 && h<18){
+            hello.textContent="Dzień dobry";
+        }
+        else{
+            hello.textContent("Dobry wieczór")
+        }
     }
     
     setInterval(() => {
         //console.log("Interval");
         showTime();
     },1000)
+    const stan = document.getElementById("Stan");
+    
 }
 
 window.addEventListener("load", () => {
