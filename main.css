@@ -119,10 +119,33 @@ a{
     z-index: -1;
 }
 .weatherModal h2{
+    display: flex;
+    padding-top:130px;
+    
+    line-height: 135px;
+    justify-content: center;
+    font-size: 200px;
+    font-family: 'Joan', serif;
+    font-weight: 100;
     text-align: center;
+    text-shadow:6px 4px   #efefef 
+
 }
 .weatherModal h3{
+    font-size: 120px;
     text-align: center;
+    text-shadow:4px 4px   #efefef 
+
+}
+.weatherModal h1{
+    text-align: center;
+    font-size: 50px;
+    text-shadow:4px 2px   #efefef 
+}
+#Wind{
+    text-align: center;
+    line-height: 70px;
+    font-size: 30px;
 }
 .menuOn,
 .formOn{

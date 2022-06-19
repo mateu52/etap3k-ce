@@ -113,14 +113,43 @@ const weatherInfo= ()=> {
         console.log(weather);
 
         city.textContent = weather.name;
-        mainTemp.textContent =`${Math.round( weather.main.temp-275.2)} C`;
+        mainTemp.textContent =`${Math.round(weather.main.temp-275.2)} C`;
+        
+        const wind = document.getElementById("Wind");
+        wind.textContent = `Wiatra ${weather.wind.speed} km/h`
     }
 
     const modalWrapper = document.getElementById("Weather");
     const closeBtn = document.getElementById("CloseModal");
+    
 
     const closeModal = () => modalWrapper.classList.add("hideModal");
     closeBtn.addEventListener('click', closeModal);
+    
+    const clock = document.getElementById("Clock");
+    const addZero = (num) => {
+        if(num<10){
+            return `0${num}`
+        }
+        else{
+            return num;
+        }
+    }
+    const showTime=()=>{
+        const currentTime = new Date()
+        //console.log(currentTime);
+        let h = currentTime.getHours();
+        let m = currentTime.getMinutes();
+        let s = currentTime.getSeconds();
+    
+        clock.textContent = `${addZero(h)}:${addZero(h)}:${addZero(s)}`;
+    
+    }
+    
+    setInterval(() => {
+        //console.log("Interval");
+        showTime();
+    },1000)
 }
 
 window.addEventListener("load", () => {
